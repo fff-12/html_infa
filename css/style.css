@@ -1,69 +1,130 @@
+/* Основні стилі сторінки */
 body {
-  font-family: Arial, San-Serif;
-  font-size: 100%;
-  background-color: з обраної палітри!;
+  font-family: Arial, sans-serif;  /* Вказуємо шрифт Arial, запасний sans-serif */
+  font-size: 100%;                 /* Базовий розмір шрифту — 100% від браузерного */
+  background-color: #ffffff;       /* Білий фон */
+  color: #333333;                  /* Колір тексту — темно-сірий */
+  margin: 0;                       /* Прибираємо відступи навколо сторінки */
+  padding: 0;                      /* Прибираємо внутрішні відступи */
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+/* Скидаємо стилі списків для ul та li */
+ul, li {
+  list-style-type: none;  /* Прибираємо маркери списків */
+  margin: 0;              /* Забираємо зовнішні відступи */
+  padding: 0;             /* Забираємо внутрішні відступи */
 }
 
-ul,li {
-  list-style-type: none;
-}
-
+/* Посилання без підкреслення */
 a {
-  text-decoration: none;
+  text-decoration: none;  /* Прибираємо стандартне підкреслення посилань */
 }
 
+/* Стилі для шапки сайту */
 header {
-  padding: 50px 0;
-  background-color: з обраної палітри!;
+  padding: 60px 0;  /* Вертикальні відступи зверху і знизу по 60px */
+  background: linear-gradient(to right, #cfcfcf, #e5e5e5);  /* Градієнт зліва направо */
+  text-align: center;  /* Центруємо текст по горизонталі */
+  border-bottom: 1px solid #cccccc;  /* Тонка лінія внизу */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);  /* Легка тінь знизу */
+  border-radius: 0 0 20px 20px;  /* Округлення нижніх кутів на 20px */
 }
 
-h1,h2 {
-  color: grey;
-  text-align: center;
+/* Стилі для заголовків у шапці */
+h1, h2 {
+  color: #3a3a3a;           /* Темно-сірий колір тексту */
+  margin: 0;                /* Відсутність зовнішніх відступів */
+  padding-bottom: 10px;     /* Відступ знизу 10px */
 }
 
+/* Стилі для навігаційної панелі */
 nav {
-  background-color: з обраної палітри;
-  border-color: з обраної палітри;
-  min-height: 64px;
+  background-color: #e0e0e0;  /* Світло-сірий фон навігації */
+  padding: 15px 0;            /* Вертикальні відступи */
+  text-align: center;         /* Центруємо контент */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);  /* Легка тінь */
+  position: sticky;           /* Прилипання меню зверху при прокрутці */
+  top: 0;                     /* Відстань від верху в 0 */
+  z-index: 1000;              /* Високий рівень для накладання поверх інших елементів */
 }
 
+/* Стилі для списку меню */
+nav ul {
+  display: inline-flex;  /* Відображаємо список у вигляді горизонтального рядка */
+  gap: 15px;            /* Відстань між пунктами меню 15px */
+}
+
+/* Стилі для пунктів меню */
 nav li {
-  float: left;
-  width: 100px;
+  display: inline;  /* Відображати в один ряд */
 }
 
+/* Стилі для посилань меню */
 nav a {
-  display: block;
-  color: з обраної палітри – контрастно до кольору тла;
-  line-height: 4em;
-  font-weight: bold;
-  text-align: center;
+  background: linear-gradient(to bottom, #cdcdcd, #b1b1b1);  /* Градієнт кнопок */
+  color: #333333;                  /* Колір тексту */
+  padding: 10px 25px;             /* Відступи всередині кнопки */
+  border-radius: 30px;            /* Круглі краї кнопок */
+  font-weight: bold;              /* Жирний шрифт */
+  transition: all 0.3s ease;      /* Плавна анімація змін стилю */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);  /* Тінь навколо кнопок */
 }
 
-nav li a:hover {
-  color: з обраної палітри – контрастно до кольору зміненого тла;
-  background-color: з обраної палітри – контрастно до кольору активного елемента меню;
+/* Ефект при наведенні курсора на посилання меню */
+nav a:hover {
+  background: linear-gradient(to bottom, #aaaaaa, #909090); /* Темніший градієнт */
+  color: #000000;                 /* Колір тексту змінюється на чорний */
+  transform: scale(1.05);         /* Трохи збільшуємо кнопку */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);  /* Глибша тінь */
 }
 
+/* Стилі для тексту абзаців */
 p {
-  font-size: 16px;
-  line-height: 1.3em;
-  margin-top: 0.1em;
-  margin-bottom: 0;
-  color: з обраної палітри – контрастно до кольору тла;
+  font-size: 16px;                /* Розмір шрифту */
+  line-height: 1.6em;             /* Відстань між рядками */
+  margin: 20px;                   /* Відступи з усіх сторін */
+  color: #444444;                 /* Темно-сірий текст */
+  max-width: 900px;               /* Максимальна ширина текстового блоку */
+  margin-left: auto;              /* Центрування по горизонталі */
+  margin-right: auto;
 }
 
+/* Підвал сайту */
 footer {
-  background-color: з обраної палітри!;
-  color: з обраної палітри;
-  padding: 20px 0;
-  margin-top: 30px;
+  background: linear-gradient(to right, #d2d2d2, #bcbcbc); /* Градієнт сірого фону */
+  color: #222222;                 /* Темно-сірий текст */
+  padding: 20px 0;                /* Вертикальні відступи */
+  text-align: center;             /* Центруємо текст */
+  margin-top: 40px;               /* Відступ зверху */
+  border-top: 1px solid #cccccc; /* Тонка лінія вгорі */
+  font-size: 14px;                /* Розмір шрифту */
+  border-radius: 20px 20px 0 0;  /* Округлення верхніх кутів */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Легка тінь зверху */
 }
 
+/* Блок із зображеннями, що будуть в один рядок */
+.inline-img {
+  display: flex;                 /* Використовуємо flexbox для ряду */
+  justify-content: space-between; /* Рівномірний розподіл простору між зображеннями */
+  flex-wrap: nowrap;             /* Забороняємо перенесення на новий рядок */
+  width: 940px;                  /* Фіксована ширина під 4 фото з відступами */
+  margin: 40px auto;             /* Відступ зверху/знизу, центр по горизонталі */
+  gap: 20px;                    /* Відстань між фото */
+}
 
+/* Стилі для самих зображень */
+.inline-img img {
+  width: 220px;                  /* Фіксована ширина */
+  height: 160px;                 /* Фіксована висота */
+  flex-shrink: 0;                /* Забороняємо фото зменшуватись */
+  border-radius: 15px;           /* Округлення країв */
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);  /* Тінь для об’ємності */
+  object-fit: cover;             /* Обрізка фото з збереженням пропорцій */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавні анімації при наведенні */
+}
+
+/* Ефект при наведенні на фото */
+.inline-img img:hover {
+  transform: scale(1.03);        /* Легке збільшення */
+  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.6); /* Посилена тінь */
+}
