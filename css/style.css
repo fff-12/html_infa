@@ -1,130 +1,483 @@
+/* ========================================================================= */
+/* ТЕМНА ТЕМА - МАКСИМАЛЬНО ОПТИМІЗОВАНИЙ CSS */
+/* ========================================================================= */
+
+/* CSS змінні для кольорів та значень */
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --bg-header: #151515;
+  --bg-input: #151515;
+  --border: #252525;
+  --border-light: #353535;
+  --text: #b0b0b0;
+  --text-light: #d0d0d0;
+  --text-muted: #7a7a7a;
+  --shadow: rgba(0, 0, 0, 0.8);
+  --transition: all 0.3s ease;
+}
+
+/* Скидання стилів за замовчуванням */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Основні стилі сторінки */
 body {
-  font-family: Arial, sans-serif;  /* Вказуємо шрифт Arial, запасний sans-serif */
-  font-size: 100%;                 /* Базовий розмір шрифту — 100% від браузерного */
-  background-color: #ffffff;       /* Білий фон */
-  color: #333333;                  /* Колір тексту — темно-сірий */
-  margin: 0;                       /* Прибираємо відступи навколо сторінки */
-  padding: 0;                      /* Прибираємо внутрішні відступи */
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  background: var(--bg-dark);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
 }
 
-/* Скидаємо стилі списків для ul та li */
+/* Контейнер для центрування контенту */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Списки та посилання */
 ul, li {
-  list-style-type: none;  /* Прибираємо маркери списків */
-  margin: 0;              /* Забираємо зовнішні відступи */
-  padding: 0;             /* Забираємо внутрішні відступи */
+  list-style: none;
 }
 
-/* Посилання без підкреслення */
 a {
-  text-decoration: none;  /* Прибираємо стандартне підкреслення посилань */
+  text-decoration: none;
+  color: #6a6a6a;
+  transition: var(--transition);
 }
 
-/* Стилі для шапки сайту */
-header {
-  padding: 60px 0;  /* Вертикальні відступи зверху і знизу по 60px */
-  background: linear-gradient(to right, #cfcfcf, #e5e5e5);  /* Градієнт зліва направо */
-  text-align: center;  /* Центруємо текст по горизонталі */
-  border-bottom: 1px solid #cccccc;  /* Тонка лінія внизу */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);  /* Легка тінь знизу */
-  border-radius: 0 0 20px 20px;  /* Округлення нижніх кутів на 20px */
+a:hover {
+  color: #8a8a8a;
 }
 
-/* Стилі для заголовків у шапці */
-h1, h2 {
-  color: #3a3a3a;           /* Темно-сірий колір тексту */
-  margin: 0;                /* Відсутність зовнішніх відступів */
-  padding-bottom: 10px;     /* Відступ знизу 10px */
+/* Заголовки */
+h1 {
+  color: var(--text-light);
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
-/* Стилі для навігаційної панелі */
-nav {
-  background-color: #e0e0e0;  /* Світло-сірий фон навігації */
-  padding: 15px 0;            /* Вертикальні відступи */
-  text-align: center;         /* Центруємо контент */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);  /* Легка тінь */
-  position: sticky;           /* Прилипання меню зверху при прокрутці */
-  top: 0;                     /* Відстань від верху в 0 */
-  z-index: 1000;              /* Високий рівень для накладання поверх інших елементів */
+h2 {
+  color: #9a9a9a;
+  font-size: 1.3em;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
-/* Стилі для списку меню */
-nav ul {
-  display: inline-flex;  /* Відображаємо список у вигляді горизонтального рядка */
-  gap: 15px;            /* Відстань між пунктами меню 15px */
+h3 {
+  font-size: 1.8em;
+  color: #c0c0c0;
+  margin: 40px 0 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
-/* Стилі для пунктів меню */
-nav li {
-  display: inline;  /* Відображати в один ряд */
-}
-
-/* Стилі для посилань меню */
-nav a {
-  background: linear-gradient(to bottom, #cdcdcd, #b1b1b1);  /* Градієнт кнопок */
-  color: #333333;                  /* Колір тексту */
-  padding: 10px 25px;             /* Відступи всередині кнопки */
-  border-radius: 30px;            /* Круглі краї кнопок */
-  font-weight: bold;              /* Жирний шрифт */
-  transition: all 0.3s ease;      /* Плавна анімація змін стилю */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);  /* Тінь навколо кнопок */
-}
-
-/* Ефект при наведенні курсора на посилання меню */
-nav a:hover {
-  background: linear-gradient(to bottom, #aaaaaa, #909090); /* Темніший градієнт */
-  color: #000000;                 /* Колір тексту змінюється на чорний */
-  transform: scale(1.05);         /* Трохи збільшуємо кнопку */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);  /* Глибша тінь */
-}
-
-/* Стилі для тексту абзаців */
 p {
-  font-size: 16px;                /* Розмір шрифту */
-  line-height: 1.6em;             /* Відстань між рядками */
-  margin: 20px;                   /* Відступи з усіх сторін */
-  color: #444444;                 /* Темно-сірий текст */
-  max-width: 900px;               /* Максимальна ширина текстового блоку */
-  margin-left: auto;              /* Центрування по горизонталі */
-  margin-right: auto;
+  font-size: 1.1em;
+  color: #a0a0a0;
+  line-height: 1.8;
+  margin: 20px 0;
 }
 
-/* Підвал сайту */
-footer {
-  background: linear-gradient(to right, #d2d2d2, #bcbcbc); /* Градієнт сірого фону */
-  color: #222222;                 /* Темно-сірий текст */
-  padding: 20px 0;                /* Вертикальні відступи */
-  text-align: center;             /* Центруємо текст */
-  margin-top: 40px;               /* Відступ зверху */
-  border-top: 1px solid #cccccc; /* Тонка лінія вгорі */
-  font-size: 14px;                /* Розмір шрифту */
-  border-radius: 20px 20px 0 0;  /* Округлення верхніх кутів */
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Легка тінь зверху */
+/* Шапка сайту */
+header {
+  padding: 80px 20px;
+  text-align: center;
+  background: var(--bg-header);
+  border-bottom: 2px solid var(--border);
+  position: relative;
 }
 
-/* Блок із зображеннями, що будуть в один рядок */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(100, 100, 100, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Навігаційне меню */
+nav {
+  background: rgba(15, 15, 15, 0.98);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 5px;
+}
+
+nav a {
+  display: block;
+  color: var(--text-muted);
+  padding: 12px 25px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: rgba(50, 50, 50, 0.5);
+  color: #9a9a9a;
+  transform: translateY(-2px);
+}
+
+/* Форма входу в навігації */
+.nav-login-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+}
+
+.nav-login-form input[type="text"],
+.nav-login-form input[type="password"] {
+  width: 130px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.9em;
+  transition: var(--transition);
+}
+
+.nav-login-form input:focus {
+  border-color: #4a4a4a;
+  background: #202020;
+  outline: none;
+  box-shadow: 0 0 10px var(--shadow);
+}
+
+.nav-login-form input[type="submit"] {
+  padding: 8px 20px;
+  background: #2a2a2a;
+  color: var(--text);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-login-form input[type="submit"]:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+#navLoginMessage {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 5px;
+  z-index: 1001;
+}
+
+/* Секції контенту */
+.intro, .about, .login-section, .comment-section {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.intro, .profile-card, .login-section, .comment-section {
+  background: var(--bg-card);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.intro {
+  margin: 40px auto;
+  padding: 60px 40px;
+}
+
+.intro h2 {
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: 2em;
+}
+
+.anim-description {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 30px 0;
+}
+
+.profile-card {
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 30px;
+  display: block;
+  border: 4px solid var(--border-light);
+  box-shadow: 0 0 30px var(--shadow);
+}
+
+.summary-text {
+  font-style: italic;
+  color: #8a8a8a;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(40, 40, 40, 0.5);
+  border-radius: 10px;
+  border-left: 4px solid var(--border-light);
+}
+
+.skills-list {
+  max-width: 700px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.skills-list li {
+  background: var(--bg-card);
+  padding: 15px 20px;
+  border-radius: 10px;
+  border-left: 3px solid var(--border-light);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.skills-list li:hover {
+  background: #202020;
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+/* Галерея та мультимедіа */
+.inline-img, .multimedia {
+  display: grid;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
 .inline-img {
-  display: flex;                 /* Використовуємо flexbox для ряду */
-  justify-content: space-between; /* Рівномірний розподіл простору між зображеннями */
-  flex-wrap: nowrap;             /* Забороняємо перенесення на новий рядок */
-  width: 940px;                  /* Фіксована ширина під 4 фото з відступами */
-  margin: 40px auto;             /* Відступ зверху/знизу, центр по горизонталі */
-  gap: 20px;                    /* Відстань між фото */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* Стилі для самих зображень */
+.multimedia {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.inline-img img, .multimedia-video video {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px var(--shadow);
+  transition: all 0.4s ease;
+  border: 2px solid var(--border);
+}
+
 .inline-img img {
-  width: 220px;                  /* Фіксована ширина */
-  height: 160px;                 /* Фіксована висота */
-  flex-shrink: 0;                /* Забороняємо фото зменшуватись */
-  border-radius: 15px;           /* Округлення країв */
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);  /* Тінь для об’ємності */
-  object-fit: cover;             /* Обрізка фото з збереженням пропорцій */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавні анімації при наведенні */
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-/* Ефект при наведенні на фото */
 .inline-img img:hover {
-  transform: scale(1.03);        /* Легке збільшення */
-  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.6); /* Посилена тінь */
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+  border-color: var(--border-light);
+}
+
+.multimedia-video video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
+}
+
+/* Анімація квадрата */
+.square {
+  width: 120px;
+  height: 120px;
+  margin: 50px auto;
+  background: #2a2a2a;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  animation: spinGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes spinGlow {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    background: #2a2a2a;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    background: #252525;
+  }
+}
+
+/* Форми */
+.login-section, .comment-section {
+  padding: 50px 40px;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form-page, .comment-form {
+  margin-top: 20px;
+}
+
+input:not([type="submit"]), textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid var(--border-light);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1em;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+  border-color: #454545;
+  background: var(--bg-card);
+  outline: none;
+  box-shadow: 0 0 15px var(--shadow);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #555;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+input[type="submit"] {
+  background: #2a2a2a;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input[type="submit"]:hover {
+  background: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+input[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+/* Повідомлення про помилки та успіх */
+.error-message, .success-message {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border-left: 3px solid;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.error-message {
+  color: #cc5555;
+  background: rgba(204, 85, 85, 0.1);
+  border-color: #cc5555;
+}
+
+.success-message {
+  color: #55aa55;
+  background: rgba(85, 170, 85, 0.1);
+  border-color: #55aa55;
+}
+
+/* Футер */
+footer {
+  background: rgba(15, 15, 15, 0.98);
+  color: #666;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 80px;
+  border-top: 2px solid var(--border);
+  font-size: 0.95em;
+}
+
+/* Адаптивність для планшетів та мобільних */
+@media (max-width: 768px) {
+  h1 { font-size: 2em; }
+  h2 { font-size: 1em; }
+  nav .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-login-form {
+    width: 100%;
+    justify-content: center;
+  }
+  .inline-img, .multimedia {
+    grid-template-columns: 1fr;
+  }
+  .intro, .profile-card, .login-section, .comment-section {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5em; }
+  .nav-login-form input[type="text"],
+  .nav-login-form input[type="password"] {
+    width: 110px;
+  }
+  .square {
+    width: 80px;
+    height: 80px;
+  }
 }
