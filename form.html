@@ -28,10 +28,9 @@
 
   <section class="login-section">
     <h3>Вхід для користувачів</h3>
-    <form action="#" method="post" class="login-form-page" id="loginForm">
+    <form action="#" method="post" class="login-form-page">
       <input type="text" name="username" placeholder="Логін" required>
       <input type="password" name="password" placeholder="Пароль" required>
-      <div id="loginMessage"></div>
       <input type="submit" value="Увійти">
     </form>
   </section>
@@ -39,11 +38,10 @@
   <section class="comment-section">
     <h3>Залишити повідомлення</h3>
     <p style="text-align: center; color: #b0a0c8; margin-bottom: 20px;">Маєте питання чи пропозицію? Напишіть мені!</p>
-    <form action="#" method="post" class="comment-form" id="commentForm">
+    <form action="#" method="post" class="comment-form">
       <input type="text" name="author" placeholder="Ваше ім'я" required>
       <input type="email" name="email" placeholder="Електронна пошта" required>
       <textarea name="comment" placeholder="Ваше повідомлення..." required></textarea>
-      <div id="commentMessage"></div>
       <input type="submit" value="Надіслати">
     </form>
   </section>
@@ -51,125 +49,6 @@
   <footer>
     <p>© 2025 Максим Потійчук — Усі права захищені</p>
   </footer>
-
-  <script>
-    // =========================================================================
-    // ОБРОБКА ФОРМИ ВХОДУ (РЕЄСТРАЦІЯ)
-    // =========================================================================
-    
-    // Отримуємо форму входу
-    const loginForm = document.getElementById('loginForm');
-    const loginMessage = document.getElementById('loginMessage');
-    
-    // Додаємо обробник події відправки форми
-    if (loginForm) {
-      loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Запобігаємо стандартній відправці форми
-        
-        // Очищаємо попередні повідомлення
-        loginMessage.innerHTML = '';
-        loginMessage.className = '';
-        
-        // Отримуємо значення полів
-        const username = this.querySelector('input[name="username"]').value.trim();
-        const password = this.querySelector('input[name="password"]').value;
-        
-        // Валідація полів
-        if (!username || !password) {
-          showMessage(loginMessage, 'Будь ласка, заповніть всі поля', 'error');
-          return;
-        }
-        
-        // Перевірка мінімальної довжини пароля
-        if (password.length < 3) {
-          showMessage(loginMessage, 'Пароль повинен містити мінімум 3 символи', 'error');
-          return;
-        }
-        
-        // Симуляція успішного входу (тут можна додати реальну перевірку)
-        // В реальному додатку тут буде запит до сервера
-        setTimeout(() => {
-          showMessage(loginMessage, 'Вхід успішно виконано! Ласкаво просимо!', 'success');
-          // Очищаємо форму після успішного входу
-          this.reset();
-        }, 500);
-      });
-    }
-    
-    // =========================================================================
-    // ОБРОБКА ФОРМИ КОМЕНТАРІВ (ВІДГУКИ)
-    // =========================================================================
-    
-    // Отримуємо форму коментарів
-    const commentForm = document.getElementById('commentForm');
-    const commentMessage = document.getElementById('commentMessage');
-    
-    // Додаємо обробник події відправки форми
-    if (commentForm) {
-      commentForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Запобігаємо стандартній відправці форми
-        
-        // Очищаємо попередні повідомлення
-        commentMessage.innerHTML = '';
-        commentMessage.className = '';
-        
-        // Отримуємо значення полів
-        const author = this.querySelector('input[name="author"]').value.trim();
-        const email = this.querySelector('input[name="email"]').value.trim();
-        const comment = this.querySelector('textarea[name="comment"]').value.trim();
-        
-        // Валідація полів
-        if (!author || !email || !comment) {
-          showMessage(commentMessage, 'Будь ласка, заповніть всі поля', 'error');
-          return;
-        }
-        
-        // Валідація email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          showMessage(commentMessage, 'Будь ласка, введіть коректну електронну адресу', 'error');
-          return;
-        }
-        
-        // Валідація довжини коментаря
-        if (comment.length < 10) {
-          showMessage(commentMessage, 'Повідомлення повинно містити мінімум 10 символів', 'error');
-          return;
-        }
-        
-        // Симуляція успішної відправки (тут можна додати реальну відправку на сервер)
-        // В реальному додатку тут буде запит до сервера
-        setTimeout(() => {
-          showMessage(commentMessage, 'Дякуємо! Ваше повідомлення успішно надіслано!', 'success');
-          // Очищаємо форму після успішної відправки
-          this.reset();
-        }, 500);
-      });
-    }
-    
-    // =========================================================================
-    // ФУНКЦІЯ ДЛЯ ВІДОБРАЖЕННЯ ПОВІДОМЛЕНЬ
-    // =========================================================================
-    
-    /**
-     * Показує повідомлення про помилку або успіх
-     * @param {HTMLElement} element - Елемент для відображення повідомлення
-     * @param {string} message - Текст повідомлення
-     * @param {string} type - Тип повідомлення: 'error' або 'success'
-     */
-    function showMessage(element, message, type) {
-      if (!element) return;
-      
-      element.textContent = message;
-      element.className = type === 'error' ? 'error-message' : 'success-message';
-      
-      // Автоматично приховуємо повідомлення через 5 секунд
-      setTimeout(() => {
-        element.innerHTML = '';
-        element.className = '';
-      }, 5000);
-    }
-  </script>
 
 </body>
 </html>

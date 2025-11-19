@@ -23,10 +23,9 @@
         <li><a href="gallery.html">Галерея</a></li> 
         <li><a href="form.html">Контакти</a></li> 
       </ul>
-      <form action="#" method="post" class="nav-login-form" id="navLoginForm">
+      <form action="#" method="post" class="nav-login-form">
         <input type="text" name="username" placeholder="Логін" required>
         <input type="password" name="password" placeholder="Пароль" required>
-        <div id="navLoginMessage"></div>
         <input type="submit" value="Увійти">
       </form>
     </div>
@@ -48,82 +47,6 @@
   <footer>
     <p>© 2025 Максим Потійчук — Усі права захищені</p>
   </footer>
-
-  <script>
-    // =========================================================================
-    // ОБРОБКА ФОРМИ ВХОДУ В НАВІГАЦІЇ
-    // =========================================================================
-    
-    // Отримуємо форму входу в навігації
-    const navLoginForm = document.getElementById('navLoginForm');
-    const navLoginMessage = document.getElementById('navLoginMessage');
-    
-    // Додаємо обробник події відправки форми
-    if (navLoginForm) {
-      navLoginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Запобігаємо стандартній відправці форми
-        
-        // Очищаємо попередні повідомлення
-        if (navLoginMessage) {
-          navLoginMessage.innerHTML = '';
-          navLoginMessage.className = '';
-        }
-        
-        // Отримуємо значення полів
-        const username = this.querySelector('input[name="username"]').value.trim();
-        const password = this.querySelector('input[name="password"]').value;
-        
-        // Валідація полів
-        if (!username || !password) {
-          if (navLoginMessage) {
-            showMessage(navLoginMessage, 'Будь ласка, заповніть всі поля', 'error');
-          }
-          return;
-        }
-        
-        // Перевірка мінімальної довжини пароля
-        if (password.length < 3) {
-          if (navLoginMessage) {
-            showMessage(navLoginMessage, 'Пароль повинен містити мінімум 3 символи', 'error');
-          }
-          return;
-        }
-        
-        // Симуляція успішного входу (тут можна додати реальну перевірку)
-        // В реальному додатку тут буде запит до сервера
-        setTimeout(() => {
-          if (navLoginMessage) {
-            showMessage(navLoginMessage, 'Вхід успішно виконано!', 'success');
-          }
-          // Очищаємо форму після успішного входу
-          this.reset();
-        }, 500);
-      });
-    }
-    
-    // =========================================================================
-    // ФУНКЦІЯ ДЛЯ ВІДОБРАЖЕННЯ ПОВІДОМЛЕНЬ
-    // =========================================================================
-    
-    /**
-     * Показує повідомлення про помилку або успіх
-     * @param {HTMLElement} element - Елемент для відображення повідомлення
-     * @param {string} message - Текст повідомлення
-     * @param {string} type - Тип повідомлення: 'error' або 'success'
-     */
-    function showMessage(element, message, type) {
-      if (!element) return;
-      
-      element.textContent = message;
-      element.className = type === 'error' ? 'error-message' : 'success-message';
-      
-      // Автоматично приховуємо повідомлення через 5 секунд
-      setTimeout(() => {
-        element.innerHTML = '';
-        element.className = '';
-      }, 5000);
-    }
-  </script>
 
 </body>
 </html>
