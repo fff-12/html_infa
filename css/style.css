@@ -1,483 +1,568 @@
 /* ========================================================================= */
-/* ТЕМНА ТЕМА - МАКСИМАЛЬНО ОПТИМІЗОВАНИЙ CSS */
+/* ТЕМНА ТЕМА - МАКСИМАЛЬНО ОПТИМІЗОВАНИЙ CSS З ДЕТАЛЬНИМИ КОМЕНТАРЯМИ      */
 /* ========================================================================= */
 
-/* CSS змінні для кольорів та значень */
+/* ===== CSS ЗМІННІ ===== */
+/* Оголошення глобальних змінних для кольорів та значень, які використовуються по всьому сайту */
 :root {
-  --bg-dark: #0f0f0f;
-  --bg-card: #1a1a1a;
-  --bg-header: #151515;
-  --bg-input: #151515;
-  --border: #252525;
-  --border-light: #353535;
-  --text: #b0b0b0;
-  --text-light: #d0d0d0;
-  --text-muted: #7a7a7a;
-  --shadow: rgba(0, 0, 0, 0.8);
-  --transition: all 0.3s ease;
+  --bg-dark: #0f0f0f;                                 /* Основний темний фон сторінки */
+  --bg-card: #1a1a1a;                                 /* Фон для карток та блоків контенту */
+  --bg-header: #151515;                               /* Фон для шапки сайту */
+  --bg-input: #151515;                                /* Фон для полів вводу */
+  --border: #252525;                                  /* Колір основних borders */
+  --border-light: #353535;                            /* Колір світліших borders для акцентів */
+  --text: #b0b0b0;                                    /* Основний колір тексту */
+  --text-light: #d0d0d0;                              /* Світліший текст для заголовків */
+  --text-muted: #7a7a7a;                              /* Приглушений текст для другорядної інформації */
+  --shadow: rgba(0, 0, 0, 0.8);                       /* Тінь для елементів */
+  --transition: all 0.3s ease;                        /* Стандартна анімація переходів */
 }
 
-/* Скидання стилів за замовчуванням */
+/* ===== СКИДАННЯ СТИЛІВ ===== */
+/* Скидання всіх стандартних відступів та паддінгів браузера */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;                                          /* Прибираємо зовнішні відступи */
+  padding: 0;                                         /* Прибираємо внутрішні відступи */
+  box-sizing: border-box;                             /* Включаємо border та padding в загальну ширину елементів */
 }
 
-/* Основні стилі сторінки */
+/* ===== ОСНОВНІ СТИЛІ BODY ===== */
+/* Глобальні стилі для всієї сторінки */
 body {
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 16px;
-  background: var(--bg-dark);
-  color: var(--text);
-  line-height: 1.7;
-  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif; /* Шрифт сторінки з запасними варіантами */
+  font-size: 16px;                                    /* Базовий розмір шрифту */
+  background: var(--bg-dark);                         /* Темний фон сторінки */
+  color: var(--text);                                 /* Основний колір тексту */
+  line-height: 1.7;                                   /* Висота рядка для читабельності */
+  min-height: 100vh;                                  /* Мінімальна висота на весь екран */
 }
 
-/* Контейнер для центрування контенту */
+/* ===== КОНТЕЙНЕР ===== */
+/* Обгортка для центрування контенту на сторінці */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1200px;                                  /* Максимальна ширина контейнера */
+  margin: 0 auto;                                     /* Центрування по горизонталі */
+  padding: 0 20px;                                    /* Відступи зліва та справа */
 }
 
-/* Списки та посилання */
+/* ===== СПИСКИ ===== */
+/* Стилі для ненумерованих списків */
 ul, li {
-  list-style: none;
+  list-style: none;                                   /* Прибираємо маркери списків */
 }
 
+/* ===== ПОСИЛАННЯ ===== */
+/* Стилі для всіх посилань на сторінці */
 a {
-  text-decoration: none;
-  color: #6a6a6a;
-  transition: var(--transition);
+  text-decoration: none;                              /* Прибираємо підкреслення */
+  color: #6a6a6a;                                     /* Сірий колір посилання */
+  transition: var(--transition);                      /* Плавна анімація при зміні стану */
 }
 
+/* Ефект при наведенні на посилання */
 a:hover {
-  color: #8a8a8a;
+  color: #8a8a8a;                                     /* Світліший колір при наведенні */
 }
 
-/* Заголовки */
+/* ===== ЗАГОЛОВОК H1 ===== */
+/* Стиль для головного заголовка сторінки */
 h1 {
-  color: var(--text-light);
-  font-size: 3em;
-  font-weight: 700;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
+  color: var(--text-light);                           /* Світлий колір тексту */
+  font-size: 3em;                                     /* Великий розмір шрифту */
+  font-weight: 700;                                   /* Жирний шрифт */
+  margin-bottom: 15px;                                /* Відступ знизу */
+  letter-spacing: 2px;                                /* Збільшена відстань між літерами */
 }
 
+/* ===== ЗАГОЛОВОК H2 ===== */
+/* Стиль для підзаголовків */
 h2 {
-  color: #9a9a9a;
-  font-size: 1.3em;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  color: #9a9a9a;                                     /* Сірий колір тексту */
+  font-size: 1.3em;                                   /* Середній розмір шрифту */
+  font-weight: 400;                                   /* Нормальна товщина шрифту */
+  letter-spacing: 3px;                                /* Велика відстань між літерами */
+  text-transform: uppercase;                          /* Великі літери */
 }
 
+/* ===== ЗАГОЛОВОК H3 ===== */
+/* Стиль для заголовків третього рівня */
 h3 {
-  font-size: 1.8em;
-  color: #c0c0c0;
-  margin: 40px 0 20px;
-  text-align: center;
-  font-weight: 600;
+  font-size: 1.8em;                                   /* Розмір шрифту */
+  color: #c0c0c0;                                     /* Світло-сірий колір */
+  margin: 40px 0 20px;                                /* Відступи зверху та знизу */
+  text-align: center;                                 /* Центрування тексту */
+  font-weight: 600;                                   /* Напівжирний шрифт */
 }
 
+/* ===== ПАРАГРАФ ===== */
+/* Стиль для звичайного тексту параграфів */
 p {
-  font-size: 1.1em;
-  color: #a0a0a0;
-  line-height: 1.8;
-  margin: 20px 0;
+  font-size: 1.1em;                                   /* Трохи збільшений розмір тексту */
+  color: #a0a0a0;                                     /* Сірий колір тексту */
+  line-height: 1.8;                                   /* Висота рядка для читабельності */
+  margin: 20px 0;                                     /* Відступи зверху та знизу */
 }
 
-/* Шапка сайту */
+/* ===== ШАПКА САЙТУ ===== */
+/* Стилі для верхньої частини сторінки (header) */
 header {
-  padding: 80px 20px;
-  text-align: center;
-  background: var(--bg-header);
-  border-bottom: 2px solid var(--border);
-  position: relative;
+  padding: 80px 20px;                                 /* Великі внутрішні відступи */
+  text-align: center;                                 /* Центрування контенту */
+  background: var(--bg-header);                       /* Темний фон шапки */
+  border-bottom: 2px solid var(--border);             /* Нижня рамка */
+  position: relative;                                 /* Для позиціонування псевдоелементів */
 }
 
+/* Декоративний ефект для шапки */
 header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(100, 100, 100, 0.05) 0%, transparent 50%);
-  pointer-events: none;
+  content: '';                                        /* Порожній контент для псевдоелементу */
+  position: absolute;                                 /* Абсолютне позиціонування */
+  top: 0;                                             /* Прилипання до верху */
+  left: 0;                                            /* Прилипання до лівого краю */
+  right: 0;                                           /* Прилипання до правого краю */
+  bottom: 0;                                          /* Прилипання до низу */
+  background: radial-gradient(circle at 30% 50%, rgba(100, 100, 100, 0.05) 0%, transparent 50%); /* Радіальний градієнт */
+  pointer-events: none;                               /* Не реагує на кліки миші */
 }
 
-/* Навігаційне меню */
+/* ===== НАВІГАЦІЙНЕ МЕНЮ ===== */
+/* Стилі для головного меню навігації */
 nav {
-  background: rgba(15, 15, 15, 0.98);
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 20px var(--shadow);
+  background: rgba(15, 15, 15, 0.98);                 /* Напівпрозорий темний фон */
+  padding: 15px 0;                                    /* Внутрішні відступи */
+  position: sticky;                                   /* Прилипає при прокрутці */
+  top: 0;                                             /* Прилипання до верху */
+  z-index: 1000;                                      /* Висока послідовність шарів */
+  border-bottom: 1px solid var(--border);             /* Нижня рамка */
+  box-shadow: 0 4px 20px var(--shadow);               /* Тінь під меню */
 }
 
+/* Контейнер навігації */
 nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;                                      /* Flexbox розташування */
+  justify-content: space-between;                     /* Розподіл елементів по краях */
+  align-items: center;                                /* Вертикальне вирівнювання по центру */
 }
 
+/* Список пунктів меню */
 nav ul {
-  display: flex;
-  gap: 5px;
+  display: flex;                                      /* Горизонтальне розташування */
+  gap: 5px;                                           /* Проміжок між пунктами */
 }
 
+/* Посилання в навігаційному меню */
 nav a {
-  display: block;
-  color: var(--text-muted);
-  padding: 12px 25px;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: var(--transition);
+  display: block;                                     /* Блокова модель */
+  color: var(--text-muted);                           /* Приглушений колір тексту */
+  padding: 12px 25px;                                 /* Внутрішні відступи */
+  font-weight: 500;                                   /* Середня товщина шрифту */
+  border-radius: 8px;                                 /* Закруглені кути */
+  transition: var(--transition);                      /* Плавна анімація */
 }
 
+/* Ефект при наведенні на пункти меню */
 nav a:hover {
-  background: rgba(50, 50, 50, 0.5);
-  color: #9a9a9a;
-  transform: translateY(-2px);
+  background: rgba(50, 50, 50, 0.5);                  /* Напівпрозорий фон */
+  color: #9a9a9a;                                     /* Світліший текст */
+  transform: translateY(-2px);                        /* Піднімання вгору */
 }
 
-/* Форма входу в навігації */
+/* ===== ФОРМА ВХОДУ В НАВІГАЦІЇ ===== */
+/* Контейнер форми логіну в меню навігації */
 .nav-login-form {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  position: relative;
+  display: flex;                                      /* Flexbox розташування */
+  gap: 8px;                                           /* Проміжок між полями */
+  align-items: center;                                /* Вертикальне центрування */
+  position: relative;                                 /* Для абсолютних дочірніх елементів */
 }
 
+/* Поля вводу тексту та паролю у навігації */
 .nav-login-form input[type="text"],
 .nav-login-form input[type="password"] {
-  width: 130px;
-  padding: 8px 15px;
-  border-radius: 6px;
-  border: 1px solid var(--border-light);
-  background: var(--bg-card);
-  color: var(--text);
-  font-size: 0.9em;
-  transition: var(--transition);
+  width: 130px;                                       /* Ширина поля */
+  padding: 8px 15px;                                  /* Внутрішні відступи */
+  border-radius: 6px;                                 /* Закруглені кути */
+  border: 1px solid var(--border-light);              /* Світла рамка */
+  background: var(--bg-card);                         /* Темний фон */
+  color: var(--text);                                 /* Колір тексту */
+  font-size: 0.9em;                                   /* Розмір шрифту */
+  transition: var(--transition);                      /* Плавна анімація */
 }
 
+/* Ефект при фокусі на полях вводу */
 .nav-login-form input:focus {
-  border-color: #4a4a4a;
-  background: #202020;
-  outline: none;
-  box-shadow: 0 0 10px var(--shadow);
+  border-color: #4a4a4a;                              /* Світліша рамка */
+  background: #202020;                                /* Трохи світліший фон */
+  outline: none;                                      /* Прибираємо стандартний outline */
+  box-shadow: 0 0 10px var(--shadow);                 /* Тінь навколо поля */
 }
 
+/* Кнопка відправки форми у навігації */
 .nav-login-form input[type="submit"] {
-  padding: 8px 20px;
-  background: #2a2a2a;
-  color: var(--text);
-  border: 1px solid var(--border-light);
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
+  padding: 8px 20px;                                  /* Внутрішні відступи */
+  background: #2a2a2a;                                /* Темно-сірий фон */
+  color: var(--text);                                 /* Колір тексту */
+  border: 1px solid var(--border-light);              /* Світла рамка */
+  border-radius: 6px;                                 /* Закруглені кути */
+  font-weight: 600;                                   /* Напівжирний шрифт */
+  cursor: pointer;                                    /* Курсор у вигляді руки */
+  transition: var(--transition);                      /* Плавна анімація */
 }
 
+/* Ефект при наведенні на кнопку входу */
 .nav-login-form input[type="submit"]:hover {
-  background: #333;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px var(--shadow);
+  background: #333;                                   /* Світліший фон */
+  transform: translateY(-2px);                        /* Піднімання вгору */
+  box-shadow: 0 5px 15px var(--shadow);               /* Тінь знизу */
 }
 
+/* Повідомлення про статус входу в навігації */
 #navLoginMessage {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-top: 5px;
-  z-index: 1001;
+  position: absolute;                                 /* Абсолютне позиціонування */
+  top: 100%;                                          /* Під формою */
+  left: 0;                                            /* Прилипання до лівого краю */
+  right: 0;                                           /* Прилипання до правого краю */
+  margin-top: 5px;                                    /* Відступ зверху */
+  z-index: 1001;                                      /* Поверх інших елементів */
 }
 
-/* Секції контенту */
+/* ===== СЕКЦІЇ КОНТЕНТУ ===== */
+/* Загальні стилі для основних секцій сторінки */
 .intro, .about, .login-section, .comment-section {
-  padding: 50px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  padding: 50px 20px;                                 /* Внутрішні відступи */
+  max-width: 1000px;                                  /* Максимальна ширина */
+  margin: 0 auto;                                     /* Центрування */
 }
 
+/* Картки та блоки з фоном */
 .intro, .profile-card, .login-section, .comment-section {
-  background: var(--bg-card);
-  border-radius: 20px;
-  box-shadow: 0 10px 40px var(--shadow);
-  border: 1px solid var(--border);
+  background: var(--bg-card);                         /* Темний фон картки */
+  border-radius: 20px;                                /* Великі закруглені кути */
+  box-shadow: 0 10px 40px var(--shadow);              /* Велика тінь */
+  border: 1px solid var(--border);                    /* Тонка рамка */
 }
 
+/* ===== ВСТУПНА СЕКЦІЯ ===== */
+/* Блок вступної інформації */
 .intro {
-  margin: 40px auto;
-  padding: 60px 40px;
+  margin: 40px auto;                                  /* Зовнішні відступи */
+  padding: 60px 40px;                                 /* Великі внутрішні відступи */
 }
 
+/* Заголовок у вступній секції */
 .intro h2 {
-  text-align: left;
-  margin-bottom: 25px;
-  font-size: 2em;
+  text-align: left;                                   /* Вирівнювання по лівому краю */
+  margin-bottom: 25px;                                /* Відступ знизу */
+  font-size: 2em;                                     /* Великий розмір */
 }
 
+/* ===== ОПИС АНІМАЦІЇ ===== */
+/* Текст опису анімованого елемента */
 .anim-description {
-  text-align: center;
-  font-style: italic;
-  color: var(--text-muted);
-  margin: 30px 0;
+  text-align: center;                                 /* Центрування тексту */
+  font-style: italic;                                 /* Курсивний текст */
+  color: var(--text-muted);                           /* Приглушений колір */
+  margin: 30px 0;                                     /* Відступи зверху та знизу */
 }
 
+/* ===== КАРТКА ПРОФІЛЮ ===== */
+/* Блок інформації про профіль користувача */
 .profile-card {
-  padding: 40px;
-  margin: 40px auto;
-  max-width: 800px;
-  text-align: center;
+  padding: 40px;                                      /* Внутрішні відступи */
+  margin: 40px auto;                                  /* Зовнішні відступи */
+  max-width: 800px;                                   /* Максимальна ширина */
+  text-align: center;                                 /* Центрування контенту */
 }
 
+/* ===== ФОТО ПРОФІЛЮ ===== */
+/* Аватар користувача */
 .profile-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 30px;
-  display: block;
-  border: 4px solid var(--border-light);
-  box-shadow: 0 0 30px var(--shadow);
+  width: 180px;                                       /* Ширина фото */
+  height: 180px;                                      /* Висота фото */
+  border-radius: 50%;                                 /* Кругла форма */
+  object-fit: cover;                                  /* Обрізка по розміру */
+  margin: 0 auto 30px;                                /* Центрування та відступ знизу */
+  display: block;                                     /* Блокова модель */
+  border: 4px solid var(--border-light);              /* Рамка навколо фото */
+  box-shadow: 0 0 30px var(--shadow);                 /* М'яка тінь */
 }
 
+/* ===== ТЕКСТ РЕЗЮМЕ ===== */
+/* Підсумковий текст про користувача */
 .summary-text {
-  font-style: italic;
-  color: #8a8a8a;
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(40, 40, 40, 0.5);
-  border-radius: 10px;
-  border-left: 4px solid var(--border-light);
+  font-style: italic;                                 /* Курсивний стиль */
+  color: #8a8a8a;                                     /* Сірий колір */
+  margin-top: 30px;                                   /* Відступ зверху */
+  padding: 20px;                                      /* Внутрішні відступи */
+  background: rgba(40, 40, 40, 0.5);                  /* Напівпрозорий фон */
+  border-radius: 10px;                                /* Закруглені кути */
+  border-left: 4px solid var(--border-light);         /* Акцентна лінія зліва */
 }
 
+/* ===== СПИСОК НАВИЧОК ===== */
+/* Сітка з навичками користувача */
 .skills-list {
-  max-width: 700px;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  max-width: 700px;                                   /* Максимальна ширина */
+  margin: 30px auto;                                  /* Центрування та відступи */
+  display: grid;                                      /* Grid розташування */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивні колонки */
+  gap: 15px;                                          /* Проміжок між елементами */
 }
 
+/* Окремий елемент навички */
 .skills-list li {
-  background: var(--bg-card);
-  padding: 15px 20px;
-  border-radius: 10px;
-  border-left: 3px solid var(--border-light);
-  color: var(--text);
-  transition: var(--transition);
+  background: var(--bg-card);                         /* Темний фон */
+  padding: 15px 20px;                                 /* Внутрішні відступи */
+  border-radius: 10px;                                /* Закруглені кути */
+  border-left: 3px solid var(--border-light);         /* Акцентна лінія */
+  color: var(--text);                                 /* Колір тексту */
+  transition: var(--transition);                      /* Плавна анімація */
 }
 
+/* Ефект при наведенні на навичку */
 .skills-list li:hover {
-  background: #202020;
-  transform: translateX(10px);
-  box-shadow: 0 5px 15px var(--shadow);
+  background: #202020;                                /* Світліший фон */
+  transform: translateX(10px);                        /* Зміщення вправо */
+  box-shadow: 0 5px 15px var(--shadow);               /* Тінь знизу */
 }
 
-/* Галерея та мультимедіа */
+/* ===== ГАЛЕРЕЯ ЗОБРАЖЕНЬ ===== */
+/* Сітка для відображення зображень та відео */
 .inline-img, .multimedia {
-  display: grid;
-  gap: 25px;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+  display: grid;                                      /* Grid розташування */
+  gap: 25px;                                          /* Проміжок між елементами */
+  max-width: 1200px;                                  /* Максимальна ширина */
+  margin: 50px auto;                                  /* Центрування та відступи */
+  padding: 0 20px;                                    /* Внутрішні відступи */
 }
 
+/* Сітка зображень */
 .inline-img {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Колонки мінімум 250px */
 }
 
+/* Сітка мультимедіа */
 .multimedia {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Колонки мінімум 300px */
 }
 
+/* Стилі для зображень та відео */
 .inline-img img, .multimedia-video video {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px var(--shadow);
-  transition: all 0.4s ease;
-  border: 2px solid var(--border);
+  width: 100%;                                        /* Повна ширина контейнера */
+  border-radius: 15px;                                /* Закруглені кути */
+  box-shadow: 0 8px 25px var(--shadow);               /* Тінь знизу */
+  transition: all 0.4s ease;                          /* Плавна анімація */
+  border: 2px solid var(--border);                    /* Рамка */
 }
 
+/* Додаткові стилі для зображень */
 .inline-img img {
-  height: 250px;
-  object-fit: cover;
-  cursor: pointer;
+  height: 250px;                                      /* Фіксована висота */
+  object-fit: cover;                                  /* Обрізка по розміру */
+  cursor: pointer;                                    /* Курсор у вигляді руки */
 }
 
+/* Ефект при наведенні на зображення */
 .inline-img img:hover {
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
-  border-color: var(--border-light);
+  transform: scale(1.05) translateY(-10px);           /* Збільшення та підняття */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);         /* Більша тінь */
+  border-color: var(--border-light);                  /* Світліша рамка */
 }
 
+/* Ефект при наведенні на відео */
 .multimedia-video video:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
+  transform: scale(1.02);                             /* Легке збільшення */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);         /* Посилена тінь */
 }
 
-/* Анімація квадрата */
+/* ===== АНІМОВАНИЙ КВАДРАТ ===== */
+/* Декоративний елемент з анімацією */
 .square {
-  width: 120px;
-  height: 120px;
-  margin: 50px auto;
-  background: #2a2a2a;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px var(--shadow);
-  animation: spinGlow 6s ease-in-out infinite alternate;
+  width: 120px;                                       /* Ширина квадрата */
+  height: 120px;                                      /* Висота квадрата */
+  margin: 50px auto;                                  /* Центрування та відступи */
+  background: #2a2a2a;                                /* Темно-сірий фон */
+  border-radius: 20px;                                /* Закруглені кути */
+  box-shadow: 0 10px 30px var(--shadow);              /* Тінь знизу */
+  animation: spinGlow 6s ease-in-out infinite alternate; /* Застосування анімації */
 }
 
+/* Анімація обертання та світіння квадрата */
 @keyframes spinGlow {
-  0%, 100% {
-    transform: rotate(0deg) scale(1);
-    background: #2a2a2a;
+  0%, 100% {                                          /* Початковий та кінцевий стан */
+    transform: rotate(0deg) scale(1);                 /* Без обертання, стандартний розмір */
+    background: #2a2a2a;                              /* Початковий колір */
   }
-  50% {
-    transform: rotate(180deg) scale(1.1);
-    background: #252525;
+  50% {                                               /* Середина анімації */
+    transform: rotate(180deg) scale(1.1);             /* Обертання на 180° та збільшення */
+    background: #252525;                              /* Трохи темніший колір */
   }
 }
 
-/* Форми */
+/* ===== ФОРМИ ===== */
+/* Контейнери для форм входу та коментарів */
 .login-section, .comment-section {
-  padding: 50px 40px;
-  margin: 40px auto;
-  max-width: 600px;
+  padding: 50px 40px;                                 /* Внутрішні відступи */
+  margin: 40px auto;                                  /* Зовнішні відступи */
+  max-width: 600px;                                   /* Максимальна ширина */
 }
 
+/* Загальні стилі форм */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: flex;                                      /* Flexbox розташування */
+  flex-direction: column;                             /* Вертикальне розташування */
+  gap: 20px;                                          /* Проміжок між полями */
 }
 
+/* Форми на окремих сторінках */
 .login-form-page, .comment-form {
-  margin-top: 20px;
+  margin-top: 20px;                                   /* Відступ зверху */
 }
 
+/* Поля вводу та текстові області */
 input:not([type="submit"]), textarea {
-  width: 100%;
-  padding: 15px 20px;
-  border: 2px solid var(--border-light);
-  border-radius: 10px;
-  background: var(--bg-input);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 1em;
-  transition: var(--transition);
+  width: 100%;                                        /* Повна ширина */
+  padding: 15px 20px;                                 /* Внутрішні відступи */
+  border: 2px solid var(--border-light);              /* Світла рамка */
+  border-radius: 10px;                                /* Закруглені кути */
+  background: var(--bg-input);                        /* Темний фон */
+  color: var(--text);                                 /* Колір тексту */
+  font-family: inherit;                               /* Успадкування шрифту */
+  font-size: 1em;                                     /* Стандартний розмір */
+  transition: var(--transition);                      /* Плавна анімація */
 }
 
+/* Ефект при фокусі на полях вводу */
 input:focus, textarea:focus {
-  border-color: #454545;
-  background: var(--bg-card);
-  outline: none;
-  box-shadow: 0 0 15px var(--shadow);
+  border-color: #454545;                              /* Світліша рамка */
+  background: var(--bg-card);                         /* Темніший фон */
+  outline: none;                                      /* Прибираємо outline */
+  box-shadow: 0 0 15px var(--shadow);                 /* Тінь навколо */
 }
 
+/* Placeholder текст у полях */
 input::placeholder, textarea::placeholder {
-  color: #555;
+  color: #555;                                        /* Темно-сірий колір */
 }
 
+/* Текстові області */
 textarea {
-  resize: vertical;
-  min-height: 150px;
+  resize: vertical;                                   /* Зміна розміру тільки по вертикалі */
+  min-height: 150px;                                  /* Мінімальна висота */
 }
 
+/* Кнопки відправки форм */
 input[type="submit"] {
-  background: #2a2a2a;
-  color: var(--text);
-  font-weight: 700;
-  font-size: 1.1em;
-  cursor: pointer;
-  padding: 15px 30px;
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  background: #2a2a2a;                                /* Темно-сірий фон */
+  color: var(--text);                                 /* Колір тексту */
+  font-weight: 700;                                   /* Жирний шрифт */
+  font-size: 1.1em;                                   /* Трохи більший текст */
+  cursor: pointer;                                    /* Курсор у вигляді руки */
+  padding: 15px 30px;                                 /* Внутрішні відступи */
+  border: 1px solid var(--border-light);              /* Світла рамка */
+  border-radius: 10px;                                /* Закруглені кути */
+  transition: var(--transition);                      /* Плавна анімація */
+  text-transform: uppercase;                          /* Великі літери */
+  letter-spacing: 1px;                                /* Відстань між літерами */
 }
 
+/* Ефект при наведенні на кнопку */
 input[type="submit"]:hover {
-  background: #333;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  background: #333;                                   /* Світліший фон */
+  transform: translateY(-3px);                        /* Підняття вгору */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);         /* Велика тінь */
 }
 
+/* Ефект при натисканні на кнопку */
 input[type="submit"]:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px);                        /* Легке підняття */
 }
 
-/* Повідомлення про помилки та успіх */
+/* ===== ПОВІДОМЛЕННЯ ===== */
+/* Базові стилі для повідомлень про помилки та успіх */
 .error-message, .success-message {
-  padding: 10px 15px;
-  border-radius: 8px;
-  border-left: 3px solid;
-  margin-top: 10px;
-  font-size: 0.9em;
+  padding: 10px 15px;                                 /* Внутрішні відступи */
+  border-radius: 8px;                                 /* Закруглені кути */
+  border-left: 3px solid;                             /* Акцентна лінія зліва */
+  margin-top: 10px;                                   /* Відступ зверху */
+  font-size: 0.9em;                                   /* Менший текст */
 }
 
+/* Стилі для повідомлень про помилки */
 .error-message {
-  color: #cc5555;
-  background: rgba(204, 85, 85, 0.1);
-  border-color: #cc5555;
+  color: #cc5555;                                     /* Червоний колір тексту */
+  background: rgba(204, 85, 85, 0.1);                 /* Напівпрозорий червоний фон */
+  border-color: #cc5555;                              /* Червона рамка */
 }
 
+/* Стилі для повідомлень про успіх */
 .success-message {
-  color: #55aa55;
-  background: rgba(85, 170, 85, 0.1);
-  border-color: #55aa55;
+  color: #55aa55;                                     /* Зелений колір тексту */
+  background: rgba(85, 170, 85, 0.1);                 /* Напівпрозорий зелений фон */
+  border-color: #55aa55;                              /* Зелена рамка */
 }
 
-/* Футер */
+/* ===== ФУТЕР ===== */
+/* Нижня частина сторінки */
 footer {
-  background: rgba(15, 15, 15, 0.98);
-  color: #666;
-  padding: 30px 20px;
-  text-align: center;
-  margin-top: 80px;
-  border-top: 2px solid var(--border);
-  font-size: 0.95em;
+  background: rgba(15, 15, 15, 0.98);                 /* Напівпрозорий темний фон */
+  color: #666;                                        /* Сірий колір тексту */
+  padding: 30px 20px;                                 /* Внутрішні відступи */
+  text-align: center;                                 /* Центрування тексту */
+  margin-top: 80px;                                   /* Великий відступ зверху */
+  border-top: 2px solid var(--border);                /* Верхня рамка */
+  font-size: 0.95em;                                  /* Трохи менший текст */
 }
 
-/* Адаптивність для планшетів та мобільних */
+/* ===== АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ===== */
+/* Медіа-запит для екранів до 768px */
 @media (max-width: 768px) {
-  h1 { font-size: 2em; }
-  h2 { font-size: 1em; }
+  h1 { font-size: 2em; }                                  /* Зменшений розмір заголовка */
+  h2 { font-size: 1em; }                                   /* Зменшений розмір підзаголовка */
+  
+  /* Контейнер навігації стає вертикальним */
   nav .container {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column;                             /* Вертикальне розташування */
+    gap: 15px;                                          /* Проміжок між елементами */
   }
+  
+  /* Список меню */
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap;                                    /* Перенос елементів на новий рядок */
+    justify-content: center;                            /* Центрування елементів */
   }
+  
+  /* Форма входу в навігації */
   .nav-login-form {
-    width: 100%;
-    justify-content: center;
+    width: 100%;                                        /* Повна ширина */
+    justify-content: center;                            /* Центрування */
   }
+  
+  /* Галереї стають одноколонковими */
   .inline-img, .multimedia {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;                         /* Одна колонка */
   }
+  
+  /* Зменшені відступи в картках */
   .intro, .profile-card, .login-section, .comment-section {
-    padding: 30px 20px;
+    padding: 30px 20px;                                 /* Менші внутрішні відступи */
   }
 }
 
+/* ===== АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ===== */
+/* Медіа-запит для екранів до 480px */
 @media (max-width: 480px) {
-  h1 { font-size: 1.5em; }
+  h1 { font-size: 1.5em; }                              /* Ще менший заголовок для мобільних */
+  
+  /* Поля вводу в навігації стають вужчими */
   .nav-login-form input[type="text"],
   .nav-login-form input[type="password"] {
-    width: 110px;
+    width: 110px;                                       /* Зменшена ширина */
   }
+  
+  /* Анімований квадрат стає меншим */
   .square {
-    width: 80px;
-    height: 80px;
+    width: 80px;                                        /* Зменшена ширина */
+    height: 80px;                                       /* Зменшена висота */
   }
 }
